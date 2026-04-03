@@ -1,0 +1,23 @@
+.hero-title {
+  font-size: 5.4rem;
+  margin-bottom: 20px;
+}
+
+.hero-subtitle {
+  font-size: 5.4rem;
+  margin-bottom: 40px;
+}
+
+/* Responsive adjustments for phones and tablets */
+@media (max-width: 768px) {
+  .hero-title, .hero-subtitle {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title, .hero-subtitle {
+    font-size: 2rem;
+    word-break: break-word;
+  }
+}

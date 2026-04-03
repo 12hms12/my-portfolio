@@ -28,21 +28,9 @@ const Projects = () => {
       id: 3, 
       title: 'Fluxpay', 
       desc: [
-        'Description pointer 1',
-        'Description pointer 2',
-        'Description pointer 3',
-        'Description pointer 4'
-      ],
-      source: '#' 
-    },
-    { 
-      id: 4, 
-      title: 'Project Four', 
-      desc: [
-        'Description pointer 1',
-        'Description pointer 2',
-        'Description pointer 3',
-        'Description pointer 4'
+        'web based payment gateway simulator',
+        'Python, MySQL for transaction management & storage',
+        'salting & Multi Factor Authentication for enhanced security',
       ],
       source: '#' 
     },
