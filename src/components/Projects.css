@@ -1,0 +1,65 @@
+.projects-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.horizontal-scroller-container {
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+  padding: 10px 0;
+  /* Hide scrollbar for cleaner look if desired, but good for accessibility to keep it or style it */
+}
+
+.nav-btn {
+  flex-shrink: 0;
+  margin: 0 10px;
+  font-size: 1.5rem;
+  padding: 10px 15px;
+}
+
+/* Custom scrollbar for retro feel */
+.horizontal-scroller-container::-webkit-scrollbar {
+  height: 12px;
+}
+
+.horizontal-scroller-container::-webkit-scrollbar-track {
+  background: var(--scroll-track);
+  border: 2px solid var(--box-border);
+}
+
+.horizontal-scroller-container::-webkit-scrollbar-thumb {
+  background: var(--scroll-thumb);
+  border: 2px solid var(--box-border);
+}
+
+.horizontal-scroller {
+  display: flex;
+  gap: 30px;
+  width: max-content; /* allows children to expand horizontally */
+  padding-bottom: 20px;
+}
+
+.project-card {
+  width: 300px;
+  max-width: 100%;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+@media (max-width: 768px) {
+  .nav-btn {
+    display: none; /* Mobile users can swipe natively */
+  }
+  .project-card {
+    width: 260px;
+  }
+  .horizontal-scroller {
+    gap: 15px; /* Tighter gap on mobile */
+  }
+}

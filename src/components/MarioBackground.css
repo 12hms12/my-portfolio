@@ -1,0 +1,114 @@
+.mario-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  pointer-events: none; /* Let clicks pass through */
+  transition: background-color 0.5s ease;
+}
+
+/* Stars */
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.mario-bg.dark .stars {
+  opacity: 1;
+}
+
+.star {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background-color: #fff;
+  box-shadow: 0 0 10px #fff;
+  animation: twinkle 2s infinite alternate;
+}
+
+.star:nth-child(even) {
+  animation-duration: 3s;
+}
+
+.star:nth-child(3n) {
+  animation-duration: 4s;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+
+/* Clouds */
+.clouds-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  transition: opacity 0.5s ease;
+}
+
+.mario-bg.dark .clouds-container {
+  opacity: 0.3; /* Dimmer clouds in the dark */
+}
+
+/* Smooth, fluffy cloud */
+.cloud {
+  position: absolute;
+  width: 60px;
+  height: 20px;
+  background-color: #f0f8ff;
+  border-radius: 20px;
+  transform: scale(2); /* Keep them big */
+}
+
+.cloud::before, .cloud::after {
+  content: '';
+  position: absolute;
+  background-color: #f0f8ff;
+  border-radius: 50%;
+}
+
+.cloud::before {
+  width: 30px;
+  height: 30px;
+  top: -15px;
+  left: 10px;
+}
+
+.cloud::after {
+  width: 20px;
+  height: 20px;
+  top: -10px;
+  right: 10px;
+}
+
+.cloud-2 {
+  transform: scale(2);
+}
+
+.cloud-3 {
+  transform: scale(4);
+}
+
+/* Ground */
+/* A fixed ground at the bottom that smoothly transitions color */
+.ground-layer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background-color: var(--bg-ground);
+  transition: background-color 0.5s ease;
+  /* Retro brick pattern can be added with multiple backgrounds, but solid is simpler for pure CSS start */
+}

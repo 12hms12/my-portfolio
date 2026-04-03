@@ -1,0 +1,175 @@
+:root {
+  /* Common variables */
+  --font-mario: 'Press Start 2P', cursive;
+
+  /* Light Theme (Day) */
+  --bg-sky-light: #5c94fc;
+  /* Default Mario sky */
+  --bg-ground-light: #c84c0c;
+  /* Default ground base */
+  --text-light: #222222;
+  --box-bg-light: #f8b800;
+  /* Coin yellow or standard block color */
+  --box-border-light: #000000;
+  --accent-light: #00a800;
+  /* Pipe green */
+  --scroll-thumb-light: #90ee90;
+  /* Light green */
+  --scroll-track-light: #2e7d32;
+  /* Darker shade of green */
+
+  /* Dark Theme (Starry Night) */
+  --bg-sky-dark: #000b1a;
+  /* Midnight sky */
+  --bg-ground-dark: #12213d;
+  /* Very dark blue for ground silhouette or dark brick */
+  --text-dark: #ffffff;
+  --box-bg-dark: #3a2e5d;
+  /* Dark retro block */
+  --box-border-dark: #647eb3;
+  --accent-dark: #a2add0;
+  /* Subdued accent */
+  --scroll-thumb-dark: #556b2f;
+  /* Dark olive green */
+  --scroll-track-dark: #1b5e20;
+  /* Deep shade of green */
+
+  /* Current theme vars (will be set by classes) */
+  --bg-sky: var(--bg-sky-light);
+  --bg-ground: var(--bg-ground-light);
+  --text-color: var(--text-light);
+  --box-bg: var(--box-bg-light);
+  --box-border: var(--box-border-light);
+  --accent: var(--accent-light);
+  --scroll-thumb: var(--scroll-thumb-light);
+  --scroll-track: var(--scroll-track-light);
+}
+
+.theme-dark {
+  --bg-sky: var(--bg-sky-dark);
+  --bg-ground: var(--bg-ground-dark);
+  --text-color: var(--text-dark);
+  --box-bg: var(--box-bg-dark);
+  --box-border: var(--box-border-dark);
+  --accent: var(--accent-dark);
+  --scroll-thumb: var(--scroll-thumb-dark);
+  --scroll-track: var(--scroll-track-dark);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-mario);
+  background-color: var(--bg-sky);
+  color: var(--text-color);
+  transition: background-color 0.5s ease, color 0.5s ease;
+  min-height: 100vh;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  font-size: 14px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-snap-type: y mandatory;
+}
+
+/* Global Side Scroller */
+::-webkit-scrollbar {
+  display: none;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Pixel art borders */
+.pixel-box {
+  background-color: var(--box-bg);
+  border: 4px solid var(--box-border);
+  box-shadow: inset -4px -4px 0px rgba(0, 0, 0, 0.2), inset 4px 4px 0px rgba(255, 255, 255, 0.2);
+  padding: 20px;
+  margin: 0 0 20px 0;
+  border-radius: 2px;
+  transition: background-color 0.5s ease, border-color 0.5s ease;
+  line-height: 1.6;
+}
+
+/* Typography styles */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-transform: uppercase;
+  margin-top: 0;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+a,
+a:visited,
+a:active {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+button {
+  font-family: var(--font-mario);
+  cursor: pointer;
+}
+
+.pixel-btn {
+  background-color: var(--box-bg);
+  color: var(--text-color);
+  border: 4px solid var(--box-border);
+  box-shadow: inset -4px -4px 0px rgba(0, 0, 0, 0.2), inset 4px 4px 0px rgba(255, 255, 255, 0.2);
+  padding: 10px 20px;
+  text-transform: uppercase;
+  transition: transform 0.1s, background-color 0.5s ease, border-color 0.5s ease;
+}
+
+.pixel-btn:active {
+  transform: scale(0.95);
+  box-shadow: inset 4px 4px 0px rgba(0, 0, 0, 0.2), inset -4px -4px 0px rgba(255, 255, 255, 0.2);
+}
+
+/* Sections */
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 10%;
+  position: relative;
+  z-index: 10;
+  min-height: 100vh;
+  scroll-snap-align: start;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 60px 5%;
+  }
+}
